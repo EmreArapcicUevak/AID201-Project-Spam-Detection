@@ -2,14 +2,35 @@
 %! Date = 18. 12. 2025.
 
 % Preamble
-\documentclass[11pt]{article}
+\documentclass{beamer}
+
+\usetheme{Madrid} % Clean theme; alternatives: "metropolis", "Boadilla", "CambridgeUS"
+\usecolortheme{seahorse}
 
 % Packages
 \usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{qrcode}
+
+%Information to be included in the title page:
+\title{Spam Detection}
+\author{Emre Arapcic-Uevak}
+\institute[IUS]{
+  International University of Sarajevo \\
+  Faculty of Engineering and Natural Sciences
+}
+\date{\today}
 
 % Document
 \begin{document}
+    \frame{\titlepage}
 
+    \begin{frame}{What will be covered?}
+        \tableofcontents
+    \end{frame}
 
 
 \end{document}
