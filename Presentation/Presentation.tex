@@ -17,20 +17,38 @@
 
 %Information to be included in the title page:
 \title{Spam Detection}
-\author{Emre Arapcic-Uevak}
+\author[Emre]{Emre Arapcic-Uevak}
 \institute[IUS]{
   International University of Sarajevo \\
   Faculty of Engineering and Natural Sciences
 }
 \date{\today}
 
+\AtBeginSubsection[] {
+  \begin{frame}{Table of Contents}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
 % Document
 \begin{document}
     \frame{\titlepage}
 
-    \begin{frame}{What will be covered?}
-        \tableofcontents
+    \begin{frame}{What will we talk about?}
+        \tableofcontents[pausesections]
     \end{frame}
 
+    \section{Introduction}
+    \subsection{What is the problem?}
+    \subsection{What did we make?}
 
+    \section{Data set}
+    \subsection{Who collected the data set?}
+    \subsection{What was the purpose of the data collection?}
+    \subsection{When was the data collected?}
+    \subsection{Feature Analysis}
+    
+    \section{Model}
+    \subsection{What model did we choose?}
+    \subsection{Performance Analysis}
 \end{document}
