@@ -2,8 +2,6 @@ import datetime
 
 import streamlit as st
 import kagglehub, os, joblib
-import pandas as pd
-import numpy as np
 
 @st.cache_resource(ttl=datetime.timedelta(hours=1))
 def load_model():
