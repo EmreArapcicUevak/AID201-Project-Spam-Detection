@@ -14,6 +14,7 @@
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{qrcode}
+\usepackage{{booktabs}}
 
 %Information to be included in the title page:
 \title{Spam Detection}
@@ -104,8 +105,41 @@
         The dataset was \textbf{donated to the UCI repository on June 21, 2012}. \vspace{0.3cm} \pause \\
         The component messages themselves come from various sources gathered prior to that donation, but \textit{as a public dataset} it has been available since \textbf{2012} for research and benchmarking.
     \end{frame}
+
     \subsection{Feature Analysis}
+    \begin{frame}{How does the dataset look?}
+        \input{../Tables/Spam_Before_Processing.tex}
+    \end{frame}
     
+    \begin{frame}{Visualization of missing data}
+        \centering
+        \includegraphics[height = 0.96\textheight, clip={0 0 0 0}]{../Images/Missing_Values_Pre_Processing_Visualized.pdf}
+    \end{frame}
+
+    \begin{frame}{Taking a closer look at the unnamed columns}
+        \only<1>{
+            \includegraphics[height = 0.85\textheight]{../Images/First_Character_Count.pdf}
+        }
+
+        \only<2>{
+            \input{../Tables/Mistake_Values_Example_Table.tex}
+        }
+    \end{frame}
+    
+    \begin{frame}{After fixing up all of the mistakes}
+        \input{../Tables/Spam_After_Processing.tex}
+    \end{frame}
+
+    \begin{frame}{Distribution of target class}
+        \centering
+        \only<1> {
+            \includegraphics[height = 0.85\textheight]{../Images/Spam_Count.pdf}
+        }
+
+        \only<2> {
+            \includegraphics[height = 0.85\textheight]{../Images/Spam_Class_Distribution.pdf}
+        }
+    \end{frame}
     \section{Model}
     \subsection{What model did we choose?}
     \subsection{Performance Analysis}
