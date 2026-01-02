@@ -14,7 +14,6 @@
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{qrcode}
-\usepackage{{booktabs}}
 
 %Information to be included in the title page:
 \title{Spam Detection}
@@ -108,42 +107,42 @@
 
     \subsection{Feature Analysis}
     \begin{frame}{How does the dataset look?}
-        \input{../Tables/Spam_Before_Processing.tex}
+        \input{../Tables/Spam_Before_Processing}
     \end{frame}
     
     \begin{frame}{Visualization of missing data}
         \centering
         \only<1>{
-            \includegraphics[width = \textwidth, clip={0 0 0 0}]{../Images/Missing_Values_Matrix}
+            \includegraphics[width = \textwidth, clip={0 0 0 0}]{Images/Missing_Values_Matrix}
         }
 
         \only<2>{
-            \includegraphics[width = \textwidth]{../Images/Missing_Values_HeatMap}
+            \includegraphics[width = \textwidth]{Images/Missing_Values_HeatMap}
         }
     \end{frame}
 
     \begin{frame}{Taking a closer look at the unnamed columns}
         \only<1>{
-            \includegraphics[height = 0.85\textheight]{../Images/First_Character_Count.pdf}
+            \includegraphics[height = 0.85\textheight]{Images/First_Character_Count}
         }
 
         \only<2>{
-            \input{../Tables/Mistake_Values_Example_Table.tex}
+            \input{../Tables/Mistake_Values_Example_Table}
         }
     \end{frame}
     
     \begin{frame}{After fixing up all of the mistakes}
-        \input{../Tables/Spam_After_Processing.tex}
+        \input{../Tables/Spam_After_Processing}
     \end{frame}
 
     \begin{frame}{Distribution of target class}
         \centering
         \only<1> {
-            \includegraphics[width = \textwidth]{../Images/Spam_Count.pdf}
+            \includegraphics[width = \textwidth]{Images/Spam_Count}
         }
 
         \only<2> {
-            \includegraphics[height = 0.85\textheight]{../Images/Spam_Class_Distribution.pdf}
+            \includegraphics[height = 0.85\textheight]{Images/Spam_Class_Distribution}
         }
     \end{frame}
     \section{Model}
