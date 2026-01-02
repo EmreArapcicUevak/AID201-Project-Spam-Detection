@@ -113,7 +113,13 @@
     
     \begin{frame}{Visualization of missing data}
         \centering
-        \includegraphics[width = \textwidth, clip={0 0 0 0}]{../Images/Missing_Values_Pre_Processing_Visualized.pdf}
+        \only<1>{
+            \includegraphics[width = \textwidth, clip={0 0 0 0}]{../Images/Missing_Values_Matrix}
+        }
+
+        \only<2>{
+            \includegraphics[width = \textwidth]{../Images/Missing_Values_HeatMap}
+        }
     \end{frame}
 
     \begin{frame}{Taking a closer look at the unnamed columns}
