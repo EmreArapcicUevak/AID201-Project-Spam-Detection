@@ -1,0 +1,176 @@
+%! Author = emrearapcic-uevak
+%! Date = 18. 12. 2025.
+
+% Preamble
+\documentclass{beamer}
+
+\usetheme{Madrid} % Clean theme; alternatives: "metropolis", "Boadilla", "CambridgeUS"
+\usecolortheme{seahorse}
+
+% Packages
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{qrcode}
+
+%Information to be included in the title page:
+\title{Spam Detection}
+\author[Emre]{Emre Arapcic-Uevak}
+\institute[IUS]{
+  International University of Sarajevo \\
+  Faculty of Engineering and Natural Sciences
+}
+\date{\today}
+
+\AtBeginSubsection[] {
+  \begin{frame}{Table of Contents}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+% Document
+\begin{document}
+    \frame{\titlepage}
+
+    \begin{frame}{What will we talk about?}
+        \tableofcontents[pausesections]
+    \end{frame}
+
+    \section{Introduction}
+    \subsection{What is the problem?}
+    \begin{frame}{Problem}
+        \begin{itemize}
+            \item SMS Spam Detection
+            \item<2-> SMS Messages are not filtered
+            \item<3-> SMS Messages can be sent at a much higher volume then Emails for a low price
+        \end{itemize}
+    \end{frame}
+
+    \subsection{What did we make?}
+    \begin{frame}{Question}
+        \begin{block}{Question}
+            How would you tell if a message was \emph{Spam} or \emph{Ham}
+        \end{block}
+
+        \begin{block}<2->{Question}
+            How would you tell a \alert{computer} to distinguish if a message was \emph{Spam} or \emph{Ham}
+        \end{block}
+    \end{frame}
+
+    \begin{frame}{Answer}
+        \pause
+        It is difficult\pause\ldots \textbf{BUT} \pause when it gets hard for
+        us to define the problem we can always make the computer \alert{learn} \\
+        
+        \pause
+
+        \vspace*{1cm}
+        \begin{definition}[Machine Learning]
+            A computer program is said to \emph{learn} from experience $E$ with respect to
+            a class of tasks $T$ and a performance measure $P$ if its performance at tasks
+            in $T$, as measured by $P$, improves with experience $E$.
+        \end{definition}
+    \end{frame}
+
+    \section{Data set}
+    \subsection{Who collected the data set?}
+    \begin{frame}{Collectors}
+        The SMS Spam Collection was compiled and donated by researchers working on SMS spam filtering.
+        It was created by \textbf{Tiago A. Almeida}, \textbf{José María Gómez Hidalgo}, and collaborators from academic
+        sources. \\ \vspace{1cm}
+
+        \pause
+
+        The corpus itself combines messages gathered from several public SMS sources, including:
+        \begin{itemize}
+            \item manually extracted spam from the \textit{Grumbletext} website,
+            \item SMS ham messages from the \textit{NUS SMS Corpus} (collected from volunteers),
+            \item and ham/spam messages from other publicly released collections.
+        \end{itemize}
+    \end{frame}
+    \subsection{What was the purpose of the data collection?}
+    \begin{frame}{Purpose behind the data collection}
+        The primary purpose of collecting this dataset was to support
+        \textbf{mobile phone spam research} \pause specifically to evaluate and develop spam filtering and classification methods.
+
+        \vspace{0.5cm} \pause
+        It provides a labeled set of SMS messages (ham vs. spam) for machine learning tasks such as classification and clustering.
+    \end{frame}
+
+    \subsection{When was the data collected?}
+    \begin{frame}{When was the data collected?}
+        The dataset was \textbf{donated to the UCI repository on June 21, 2012}. \vspace{0.3cm} \pause \\
+        The component messages themselves come from various sources gathered prior to that donation, but \textit{as a public dataset} it has been available since \textbf{2012} for research and benchmarking.
+    \end{frame}
+
+    \subsection{Feature Analysis}
+    \begin{frame}{How does the dataset look?}
+        \input{Tables/Spam_Before_Processing}
+    \end{frame}
+    
+    \begin{frame}{Visualization of missing data}
+        \centering
+        \only<1>{
+            \includegraphics[width = \textwidth, clip={0 0 0 0}]{Images/Missing_Values_Matrix}
+        }
+
+        \only<2>{
+            \includegraphics[width = \textwidth]{Images/Missing_Values_HeatMap}
+        }
+    \end{frame}
+
+    \begin{frame}{Taking a closer look at the unnamed columns}
+        \only<1>{
+            \includegraphics[height = 0.85\textheight]{Images/First_Character_Count}
+        }
+
+        \only<2>{
+            \input{Tables/Mistake_Values_Example_Table}
+        }
+    \end{frame}
+    
+    \begin{frame}{After fixing up all of the mistakes}
+        \input{Tables/Spam_After_Processing}
+    \end{frame}
+
+    \begin{frame}{Distribution of target class}
+        \centering
+        \only<1> {
+            \includegraphics[width = \textwidth]{Images/Spam_Count}
+        }
+
+        \only<2> {
+            \includegraphics[height = 0.85\textheight]{Images/Spam_Class_Distribution}
+        }
+    \end{frame}
+
+    \section{Model}
+    \subsection{What model did we choose?}
+        \begin{frame}{Naive Bayes}
+            In Machine learning, Naive Bayes Classifiers are a family of simple ``probabilistic classifiers`` based on applying
+            Bayes' theorem with strong independence assumption between the features.
+            \vspace{1mm}
+
+            \begin{equation*}
+                P(A | B) = \frac{P(B | A) \cdot P(A)}{P(B)}
+            \end{equation*}
+        \end{frame}
+
+    \subsection{Performance Analysis}
+        \begin{frame}{Confusion Matrix}
+            \centering
+            \includegraphics[height=0.8\textheight]{Images/ConfusionMatrix}
+        \end{frame}
+
+        \begin{frame}{ROC Curve}
+            \centering
+            \includegraphics[height=0.9\textheight]{Images/ROC_Curve}
+        \end{frame}
+
+        \begin{frame}{Classification Report}
+            \centering
+            \input{Tables/Classification_Report_Table}
+        \end{frame}
+\end{document}
