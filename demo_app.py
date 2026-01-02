@@ -25,8 +25,7 @@ university of Sarajevo](https://www.ius.edu.ba/en)
 
 query = st.text_input(label="SMS Message", value=None, placeholder="Enter your sms message", icon='✉️')
 if query:
-    with st.spinner('Running...', show_time=True):
-        result = predict_spam(query)
+    result = predict_spam(query)
 
     if result:
         st.error( 'This message is SPAM!!!', icon="🚨" )
